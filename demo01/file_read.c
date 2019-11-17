@@ -29,6 +29,11 @@ int main(int argc,char *argv[])
 			char buf[1024];
 			memset(buf,0,1024);//申请内存
 			int returnnum = read(fd,buf,1024);
+
+			//获取文件大小
+			int file_length = lseek(fd,0,SEEK_END);
+			printf("file length = %d\n",file_length);
+
 			if(returnnum != -1)
 			{
 				//read success

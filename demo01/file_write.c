@@ -28,6 +28,15 @@ int main(int argc,char *argv[])
 			//write string to file
 			char buf[] = "\n欢迎来到深圳南山区!\n";
 			int result = write(fd,buf,strlen(buf));	
+
+			//文件偏移
+			lseek(fd,5,SEEK_SET);
+			char buf2[1024];
+			memset(buf2,0,1024);
+			//读文件
+			read(fd,buf2,1024);
+			printf("buf2=%s\n",buf2);			
+
 			if(result != -1)
 			{
 				//read success
